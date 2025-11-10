@@ -21,4 +21,4 @@ instead. This can cause chaos when a `BorkResource` is composed as part of a
 composite resource (XR), as the XR and `provider-bork` rapidly fight over the
 `dataValue` field. Fun times!
 
-This is a good demo and test of the XR circuit breaker funcitonality.
+This is a good demo and test of the XR circuit breaker functionality.
