@@ -1,0 +1,9 @@
+apiVersion: bork.crossplane.io/v1alpha1
+kind: BorkResource
+metadata:
+  name: doh-bork
+  namespace: default
+spec:
+  forProvider:
+    borkValue: 2
+    dataValue: 1

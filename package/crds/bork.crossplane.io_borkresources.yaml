@@ -4,18 +4,18 @@ kind: CustomResourceDefinition
 metadata:
   annotations:
     controller-gen.kubebuilder.io/version: v0.18.0
-  name: mytypes.sample.template.crossplane.io
+  name: borkresources.bork.crossplane.io
 spec:
-  group: sample.template.crossplane.io
+  group: bork.crossplane.io
   names:
     categories:
     - crossplane
     - managed
-    - template
-    kind: MyType
-    listKind: MyTypeList
-    plural: mytypes
-    singular: mytype
+    - bork
+    kind: BorkResource
+    listKind: BorkResourceList
+    plural: borkresources
+    singular: borkresource
   scope: Namespaced
   versions:
   - additionalPrinterColumns:
@@ -34,7 +34,7 @@ spec:
     name: v1alpha1
     schema:
       openAPIV3Schema:
-        description: A MyType is an example API type.
+        description: A BorkResource is an example API type.
         properties:
           apiVersion:
             description: |-
@@ -54,15 +54,19 @@ spec:
           metadata:
             type: object
           spec:
-            description: A MyTypeSpec defines the desired state of a MyType.
+            description: A BorkResourceSpec defines the desired state of a BorkResource.
             properties:
               forProvider:
-                description: MyTypeParameters are the configurable fields of a MyType.
+                description: BorkResourceParameters are the configurable fields of
+                  a BorkResource.
                 properties:
-                  configurableField:
-                    type: string
+                  borkValue:
+                    type: integer
+                  dataValue:
+                    type: integer
                 required:
-                - configurableField
+                - borkValue
+                - dataValue
                 type: object
               managementPolicies:
                 default:
@@ -123,18 +127,8 @@ spec:
             - forProvider
             type: object
           status:
-            description: A MyTypeStatus represents the observed state of a MyType.
+            description: A BorkResourceStatus represents the observed state of a BorkResource.
             properties:
-              atProvider:
-                description: MyTypeObservation are the observable fields of a MyType.
-                properties:
-                  configurableField:
-                    type: string
-                  observableField:
-                    type: string
-                required:
-                - configurableField
-                type: object
               conditions:
                 description: Conditions of the resource.
                 items:
